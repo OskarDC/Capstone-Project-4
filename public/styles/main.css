@@ -1,17 +1,134 @@
-body{
-
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #6A9C89;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
-header{
+header, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 10vh;
-    background-color: black;
+    background-color: #16423C;
 }
 
-main{
-    height: 80vh;
+header h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    color: white;
 }
 
-footer{
-    height: 10vh;
-    background-color: black;
+main {
+    min-height: 78vh;
+    padding: 2vh 2vw;
+}
+
+main #selectCountry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+main #selectCountry form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+main #selectCountry form .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+main #selectCountry form label {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: white;
+}
+
+main #selectCountry select {
+    width: 35vw;
+    height: 5vh;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    color: white;
+    border: 0.2rem solid white;
+    padding-left: 1rem;
+}
+
+main #selectCountry select option {
+    background-color: #6A9C89;
+}
+
+main #selectCountry button {
+    width: 14vw;
+    height: 5vh;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    color: white;
+    border: 0.2rem solid white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+main #selectCountry button:hover {
+    background-color: white;
+    color: #16423C;
+}
+
+main #all-holidays {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main #all-holidays .single-holiday {
+    border: 0.2rem solid white;
+    border-radius: 1rem;
+    padding: 2vh 2vw;
+    width: 50vw;
+    margin-top: 2vh;
+    background-color: #16423C;
+}
+
+main #all-holidays .single-holiday h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: white;
+    margin-bottom: 1vh;
+}
+
+main #all-holidays .single-holiday p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: white;
+    margin: 0.5vh 0;
+}
+
+main #all-holidays .single-holiday a {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+main #all-holidays .single-holiday a:hover {
+    color: #F0E68C;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+footer p {
+    color: white;
+    font-size: 1rem;
 }
