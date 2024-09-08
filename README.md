@@ -4,7 +4,7 @@ I developed the ToHoliday website using HTML, CSS, JS, Node.js, Express.js, EJS,
 ## How to Run This Web Application
 1. **Set Up Your API Key**
    - Sign up for an account on [Calendarific](https://calendarific.com/).
-   - Obtain your API key and replace the placeholder in the `.env` file with your own key (format: `API_KEY=your_key_here`).
+   - Obtain your API key and replace the placeholder in the `index.js` file with your own key.
   
 2. **Install Dependencies**
    ```
