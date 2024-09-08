@@ -11,7 +11,6 @@ const API_KEY = process.env.API_KEY;
 
 app.use(express.static("public"));
 
-// Store countries globally to avoid redundant API calls
 let cachedCountries = [];
 
 const getCountries = async () => {
@@ -22,7 +21,6 @@ const getCountries = async () => {
     return cachedCountries;
 };
 
-// Route to render the main page with country dropdown
 app.get("/", async (req, res) => {
     try {
         const countries = await getCountries();
@@ -33,7 +31,6 @@ app.get("/", async (req, res) => {
     }
 });
 
-// Route to fetch and display holidays based on selected country
 app.get("/holidays", async (req, res) => {
     const countryIso = req.query.country;
     const today = new Date();
@@ -42,11 +39,9 @@ app.get("/holidays", async (req, res) => {
     const year = today.getFullYear();
 
     try {
-        // Fetch holidays
         const holidaysResponse = await axios.get(`${API_URL}/holidays${API_KEY}&country=${countryIso}&day=${day}&month=${month}&year=${year}`);
         const holidays = holidaysResponse.data.response.holidays;
 
-        // Fetch countries only if not already cached
         const countries = await getCountries();
         const selectedCountry = countries.find(country => country['iso-3166'] === countryIso);
 

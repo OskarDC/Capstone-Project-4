@@ -2,43 +2,33 @@
 
 <main>
     <% if (locals.countries) { %>
-        <section id="selectCountry" class="section section--country-selection bold-text">
+        <section id="selectCountry" class="bold-text">
             <form action="/holidays" method="GET">
-                <label for="country-select">Choose a country</label>
+                <label for="availableCountries">Choose a country</label>
                 <div class="form-group">
-                    <select name="country" id="country-select" aria-label="Select a country">
+                    <select name="country" id="availableCountries" aria-label="Choose a country">
                         <% countries.forEach(country => { %>
-                            <option value="<%= country['iso-3166'] %>">
-                                <%= country.country_name %>
-                            </option>
+                            <option value="<%= country['iso-3166'] %>"><%= country.country_name %></option>
                         <% }) %>
                     </select>
-                    <button type="submit" class="btn btn--primary" aria-label="Submit country selection">Select</button>
+                    <button type="submit" aria-label="Select the country">Select</button>
                 </div>
             </form>
         </section>
     <% } %>
 
     <% if (locals.holidays && locals.selectedCountry) { %>
-        <section id="all-holidays" class="section section--holidays">
+        <section id="all-holidays">
             <% if (holidays.length === 0) { %> 
                 <h2 class="bold-text">There are no holidays in <%= selectedCountry %> today.</h2>
             <% } else { %>
                 <h2 class="bold-text">Today's holidays in <%= selectedCountry %></h2>
                 <% holidays.forEach(holiday => { %>
                     <article class="single-holiday">
-                        <h3 class="bold-text">
-                            <%= holiday.name %>
-                        </h3>
-                        <p>
-                            <span class="bold-text">Description:</span> <%= holiday.description %>
-                        </p>
-                        <p>
-                            <span class="bold-text">Date:</span> <%= holiday.date.iso %>
-                        </p>
-                        <p>
-                            <a href="<%= holiday.canonical_url %>" class="link link--info">More Info</a>
-                        </p>
+                        <h3 class="bold-text"><%= holiday.name %></h3>
+                        <p><span class="bold-text">Description:</span> <%= holiday.description %></p>
+                        <p><span class="bold-text">Date:</span> <%= holiday.date.iso %></p>
+                        <p><a href="<%= holiday.canonical_url %>">More Info</a></p>
                     </article>
                 <% }) %>
             <% } %>
