@@ -1,10 +1,11 @@
 import express from "express";
+import dotenv from 'dotenv';
 import axios from "axios";
 
 const app = express();
 const port = 3000;
 const API_URL = "https://calendarific.com/api/v2";
-const API_KEY = "";
+const API_KEY = process.env.API_KEY;
 
 app.use(express.static("public"));
 
